@@ -4,18 +4,15 @@ metadata:
   name: it-services-portal
   labels:
     app: it-services-portal
-    env: dev
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: it-services-portal
-      env: dev
   template:
     metadata:
       labels:
         app: it-services-portal
-        env: dev
     spec:
       containers:
       - name: it-services-portal

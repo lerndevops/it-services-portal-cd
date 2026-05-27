@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: it-services-portal
+  labels:
+    env: dev
+spec:
+  template:
+    metadata:
+      labels:
+        env: dev
