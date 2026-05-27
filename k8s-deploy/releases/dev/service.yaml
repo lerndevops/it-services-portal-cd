@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: it-services-portal-svc
+spec:
+  type: NodePort
+  selector:
+    app: it-services-portal
+    env: dev
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30002

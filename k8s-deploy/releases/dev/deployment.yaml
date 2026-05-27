@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: it-services-portal
+  labels:
+    app: it-services-portal
+    env: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: it-services-portal
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: it-services-portal
+        env: dev
+    spec:
+      containers:
+      - name: it-services-portal
+        image: lerndevops/it-services-portal:latest
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "20m"
+            memory: "64Mi"
+        ports:
+        - name: http
+          containerPort: 8080
