@@ -1,0 +1,32 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: {{ .Values.app }}
+  labels:
+    app: {{ .Values.app }}
+    env: {{ .Values.environment }}
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.app }}
+      env: {{ .Values.environment }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.app }}
+        env: {{ .Values.environment }}
+    spec:
+      containers:
+      - name: {{ .Values.app }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+          limits:
+            cpu: "{{ .Values.resources.limits.cpu }}"
+            memory: "{{ .Values.resources.limits.memory }}"
+          requests:
+            cpu: "{{ .Values.resources.requests.cpu }}"
+            memory: "{{ .Values.resources.requests.memory }}"
+        ports:
+        - name: http
+          containerPort: {{ .Values.deployment.containerPort }}

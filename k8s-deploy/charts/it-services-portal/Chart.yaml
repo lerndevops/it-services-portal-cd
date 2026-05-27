@@ -1,0 +1,6 @@
+apiVersion: v2
+name: it-services-portal
+description: A Helm chart for IT Services Portal application
+type: application
+version: 1.0.0
+appVersion: "latest"
