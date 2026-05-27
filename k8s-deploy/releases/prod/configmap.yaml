@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: it-services-portal-config
-  env: production
-data:
-  APP_ENV: "production"
-  APP_DEBUG: "false"
-  APP_PORT: "8080"
