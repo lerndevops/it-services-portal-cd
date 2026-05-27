@@ -2,14 +2,6 @@
 
 This directory contains Kubernetes deployment configurations for the IT Services Portal application using **Kustomize** as the primary tool.
 
-## 📁 Quick Navigation
-
-### Kustomize Structure (Current)
-- **Location**: `kustomize/`
-- **Status**: ✅ Production-ready
-- **Type**: Native Kubernetes configuration management
-- **Files**: 14 YAML files + 3 documentation files
-
 ### Directory Overview
 
 ```
@@ -25,20 +17,6 @@ k8s-deploy/
 │       ├── dev/
 │       ├── uat/
 │       └── prod/
-│
-├── releases/                           (Legacy - kept for reference)
-│   ├── dev/
-│   ├── uat/
-│   └── prod/
-│
-├── charts/                             (Helm - optional, can be removed)
-│   └── it-services-portal/
-│
-├── KUSTOMIZE.md                        (Comprehensive guide)
-├── KUSTOMIZE-QUICK-START.md            (Quick reference)
-├── KUSTOMIZE-CONVERSION.md             (Detailed explanation)
-├── README.md                           (This file)
-└── INDEX.md                            (Navigation guide)
 ```
 
 ## 🚀 Quick Start
@@ -80,19 +58,6 @@ kubectl get pods -n prod -l app=it-services-portal
 kubectl logs -n dev -l app=it-services-portal -f
 ```
 
-## 📚 Documentation Files
-
-| File | Purpose | Size | Read Time |
-|------|---------|------|-----------|
-| **KUSTOMIZE-QUICK-START.md** | Quick reference with common commands | 2.3 KB | 3 min |
-| **KUSTOMIZE.md** | Comprehensive guide with examples | 7.6 KB | 15 min |
-| **KUSTOMIZE-CONVERSION.md** | Detailed conversion explanation | 8.1 KB | 15 min |
-
-**Recommended Reading Order:**
-1. Start with **KUSTOMIZE-QUICK-START.md** for immediate commands
-2. Read **KUSTOMIZE.md** for comprehensive understanding
-3. Review **KUSTOMIZE-CONVERSION.md** for before/after comparison
-
 ## 🎯 What is Kustomize?
 
 **Kustomize** is Kubernetes' native configuration management tool (built into kubectl). It allows you to:
@@ -123,17 +88,6 @@ kustomize/overlays/dev/         kustomize/overlays/uat/         kustomize/overla
 
 Final Deployment Manifests (dev/uat/prod)
 ```
-
-## 🔄 Comparison: Old vs New
-
-| Aspect | Before (Helm) | After (Kustomize) |
-|--------|---------------|-------------------|
-| **Lines of Code** | 312 | 190 |
-| **Duplication** | 75% duplicated | No duplication |
-| **Maintenance** | Edit 3 files | Edit 1 base file |
-| **Syntax** | Template variables | Plain YAML patches |
-| **Native K8s** | No (external tool) | Yes (built-in) |
-| **Learning Curve** | Steep | Easy |
 
 ## 📋 Environment Configuration
 
@@ -261,51 +215,6 @@ kubectl get events -n dev --sort-by='.lastTimestamp'
 ```bash
 kubectl get pods -n dev --show-labels
 ```
-
-## 📞 Support
-
-For detailed information:
-- **Quick reference**: See `KUSTOMIZE-QUICK-START.md`
-- **Full guide**: See `KUSTOMIZE.md`
-- **Conversion details**: See `KUSTOMIZE-CONVERSION.md`
-
-## ✅ Migration Checklist
-
-- [ ] Review Kustomize structure
-- [ ] Test deployment to dev environment
-- [ ] Verify ConfigMaps and Secrets
-- [ ] Test in UAT environment
-- [ ] Update CI/CD pipelines
-- [ ] Deploy to production
-- [ ] Monitor for issues
-- [ ] Archive old Helm charts (optional)
-
-## 📊 File Statistics
-
-```
-Total Files Created: 17
-├── YAML Files: 14
-│   ├── Base Resources: 5
-│   ├── Dev Overlay: 3
-│   ├── UAT Overlay: 3
-│   └── Prod Overlay: 3
-└── Documentation: 3
-    ├── KUSTOMIZE.md
-    ├── KUSTOMIZE-QUICK-START.md
-    └── KUSTOMIZE-CONVERSION.md
-
-Total Lines of Code: ~190 (YAML)
-Code Reduction: 39% compared to old structure
-Duplication: 0% (DRY principle achieved)
-```
-
----
-
-**Status**: ✅ Production Ready  
-**Last Updated**: 2026-05-27  
-**Version**: 1.0
-
-For the most up-to-date information, see the documentation files listed above.
 
 ## References
 
