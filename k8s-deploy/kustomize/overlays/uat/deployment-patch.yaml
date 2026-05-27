@@ -5,7 +5,18 @@ metadata:
   labels:
     env: uat
 spec:
+  replicas: 2
   template:
     metadata:
       labels:
         env: uat
+    spec:
+      containers:
+      - name: it-services-portal
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "50m"
+            memory: "128Mi"

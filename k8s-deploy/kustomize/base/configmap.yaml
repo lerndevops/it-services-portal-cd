@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: it-services-portal-config
 data:
-  APP_ENV: "development"
   APP_DEBUG: "false"
   APP_PORT: "8080"

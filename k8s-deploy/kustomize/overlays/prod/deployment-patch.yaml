@@ -5,7 +5,18 @@ metadata:
   labels:
     env: production
 spec:
+  replicas: 2
   template:
     metadata:
       labels:
         env: production
+    spec:
+      containers:
+      - name: it-services-portal
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "1Gi"
+          requests:
+            cpu: "100m"
+            memory: "256Mi"

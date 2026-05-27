@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-metadata:
-  name: it-services-portal-dev
-  namespace: dev
+namespace: dev
 
-bases:
+resources:
   - ../../base
 
 commonLabels:
@@ -15,3 +13,4 @@ patchesStrategicMerge:
   - deployment-patch.yaml
   - service-patch.yaml
   - configmap-patch.yaml
+  - secret-patch.yaml
