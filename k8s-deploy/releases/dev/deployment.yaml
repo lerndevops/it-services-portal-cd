@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: it-services-portal
-        image: lerndevops/it-services-portal:latest
+        image: lerndevops/it-services-portal:BUILD_NUMBER
         resources:
           limits:
             cpu: "500m"
